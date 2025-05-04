@@ -4,10 +4,10 @@ function Header() {
   return (
     <div className={styles.container}>
       <h1>Contacts</h1>
-      <div >
-        <div>
-            <button>+</button>
-            <button>Manage Bulk Delete</button>
+      <div className={styles.manageContacts} >
+        <div className={styles.buttons}>
+            <button className={styles.addButton}>+</button>
+            <button className={styles.bulkDeleteButton}>Manage Bulk Delete</button>
 
         </div>
         <input type="text" placeholder="search"/>
