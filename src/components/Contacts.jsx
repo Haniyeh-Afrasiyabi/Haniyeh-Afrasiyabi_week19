@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../App";
+import Form from "./Form";
 import styles from "../components/contacts.module.css";
 
 function Contacts() {
@@ -14,8 +15,7 @@ function Contacts() {
         X
       </button>
       <div className={styles.addContact}>
-        
-
+        <Form />
       </div>
     </div>
   );
