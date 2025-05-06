@@ -69,7 +69,7 @@ const reducer = (state, action) => {
         contacts: state.contacts.filter(
           (contact) => !state.selectedContacts.includes(contact.id)
         ),
-        selectedContacts: [], // پاکسازی بعد از حذف
+        selectedContacts: [],
       };
     case "ShowDeleteModal":
       return { ...state, showDeleteModal: true };
@@ -122,7 +122,6 @@ function App() {
   const [filteredContacts, setFilteredContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // const [state, dispatch] = useReducer(reducer, initialState);
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
     contacts: JSON.parse(localStorage.getItem("contacts")) || [],

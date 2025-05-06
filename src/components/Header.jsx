@@ -13,11 +13,10 @@ function Header() {
     <div className={styles.container}>
       <h1>Contacts</h1>
       <div className={styles.manageContacts}>
-        <div className={styles.buttons}>
-          <button className={styles.addButton} onClick={showHandler}>
-            +
-          </button>
-        </div>
+        <button className={styles.addButton} onClick={showHandler}>
+          +
+        </button>
+
         <input
           type="text"
           onChange={(e) => searchHandler(e.target.value)}

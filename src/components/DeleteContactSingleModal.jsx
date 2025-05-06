@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../App";
-import styles from "./DeleteContactSingleModal.module.css";
-// import styles from "./deleteModal.module.css"; // استایل اختیاری
+import styles from "./confirmModal.module.css";
 
 function DeleteContactSingleModal() {
   const { state, dispatch } = useContext(UserContext);
@@ -15,16 +14,16 @@ function DeleteContactSingleModal() {
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <p>آیا مطمئن هستید که می‌خواهید این مخاطب را حذف کنید؟</p>
+        <p>Are you sure you want to delete this contact?</p>
         <div className={styles.buttons}>
           <button className={styles.yes} onClick={deleteHandler}>
-            بله
+            Yes
           </button>
           <button
             className={styles.no}
             onClick={() => dispatch({ type: "CloseDeleteSingleModal" })}
           >
-            خیر
+            No
           </button>
         </div>
       </div>

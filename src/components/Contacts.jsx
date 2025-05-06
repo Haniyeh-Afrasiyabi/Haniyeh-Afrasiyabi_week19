@@ -19,7 +19,6 @@ function Contacts() {
         <Form />
         <ConfirmModal />
       </div>
-      
     </div>
   );
 }

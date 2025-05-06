@@ -33,10 +33,10 @@
   border-radius: 2px;
 }
 
-.yes:hover{
-    background-color: rgb(13, 152, 80);
+.yes:hover {
+  background-color: rgb(13, 152, 80);
 }
 
-.no:hover{
-    background-color: red;
+.no:hover {
+  background-color: red;
 }

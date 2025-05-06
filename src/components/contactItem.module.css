@@ -45,12 +45,17 @@
 .checkbox {
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 3rem;
+  width: 1.5rem;
 }
 
 @media (max-width: 900px) {
   .email {
+    display: none;
+  }
+}
+
+@media (max-width: 499px) {
+  .phoneNumber {
     display: none;
   }
 }

@@ -1,7 +1,7 @@
 // ConfirmModal.js
 import { useContext } from "react";
 import { UserContext } from "../App";
-import styles from "./confirmModal.module.css"
+import styles from "./confirmModal.module.css";
 
 function ConfirmModal() {
   const { state, dispatch } = useContext(UserContext);
@@ -16,7 +16,7 @@ function ConfirmModal() {
       dispatch({ type: "updateContact", payload: data });
     }
     dispatch({ type: "HideConfirmModal" });
-    dispatch({ type: "Cross" }); // بستن مودال فرم
+    dispatch({ type: "Cross" });
   };
 
   const cancelHandler = () => {
@@ -27,14 +27,19 @@ function ConfirmModal() {
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <p>
-          آیا مطمئن هستید که می‌خواهید مخاطب را {mode === "add" ? "اضافه" : "ویرایش"} کنید؟
+          Are you sure you want to {mode === "add" ? "add" : "edit"} the
+          contact?
         </p>
         <div className={styles.buttons}>
-          <button className={styles.yes} onClick={confirmHandler}>بله</button>
-          <button className={styles.no} onClick={cancelHandler}>خیر</button>
+          <button className={styles.yes} onClick={confirmHandler}>
+            Yes
+          </button>
+          <button className={styles.no} onClick={cancelHandler}>
+            No
+          </button>
         </div>
       </div>
     </div>
   );
 }
- export default ConfirmModal;
+export default ConfirmModal;

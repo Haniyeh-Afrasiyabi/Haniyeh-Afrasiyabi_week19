@@ -1,4 +1,4 @@
-import { object, string} from "yup";
+import { object, string } from "yup";
 
 export let userSchema = object({
   name: string().required().min(3),

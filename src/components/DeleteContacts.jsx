@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../App";
-import styles from "./deleteContacts.module.css";
+import styles from "./confirmModal.module.css";
 
 function DeleteContacts() {
   const { state, dispatch } = useContext(UserContext);
@@ -8,19 +8,23 @@ function DeleteContacts() {
     <>
       {state.showDeleteModal && (
         <div className={styles.overlay}>
-          <div  className={styles.modal}>
-            <p>آیا از حذف این مخاطبین اطمینان دارید؟</p>
+          <div className={styles.modal}>
+            <p>Are you sure you want to delete these contacts?</p>
             <div className={styles.buttons}>
-              <button className={styles.yes}
+              <button
+                className={styles.yes}
                 onClick={() => {
                   dispatch({ type: "BulkDeleteContacts" });
                   dispatch({ type: "HideDeleteModal" });
                 }}
               >
-                بله، حذف کن
+                Yes, delete
               </button>
-              <button className={styles.no} onClick={() => dispatch({ type: "HideDeleteModal" })}>
-                لغو
+              <button
+                className={styles.no}
+                onClick={() => dispatch({ type: "HideDeleteModal" })}
+              >
+                Cancel
               </button>
             </div>
           </div>

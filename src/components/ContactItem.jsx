@@ -21,7 +21,7 @@ function ContactItem({ contact }) {
       <p className={styles.email}>
         <span>📫</span> {contact.email}
       </p>
-      <p>
+      <p className={styles.phoneNumber}>
         <span>📞</span> {contact.phoneNumber}
       </p>
       <button onClick={() => dispatch({ type: "edite", payload: contact })}>
@@ -34,13 +34,6 @@ function ContactItem({ contact }) {
       >
         🗑
       </button>
-
-      {/* {!isBulkDeleting && (
-              <>
-                <button onClick={() => startEditing(contact)}>✏️</button>
-                <button onClick={() => deleteHandler(id)}>🗑</button>
-              </>
-            )} */}
     </li>
   );
 }
