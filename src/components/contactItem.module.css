@@ -42,11 +42,12 @@
   font-size: 1.7rem;
 }
 
-/* .checkbox {
+.checkbox {
   display: flex;
   align-items: center;
   gap: 10px;
-} */
+  width: 3rem;
+}
 
 @media (max-width: 900px) {
   .email {

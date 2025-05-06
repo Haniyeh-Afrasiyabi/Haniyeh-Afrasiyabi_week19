@@ -3,7 +3,7 @@ import { UserContext } from "../App";
 import styles from "./header.module.css";
 
 function Header() {
-  const { dispatch } = useContext(UserContext);
+  const { dispatch, searchHandler, searchTerm } = useContext(UserContext);
 
   const showHandler = () => {
     dispatch({ type: "AddContact" });
@@ -17,11 +17,14 @@ function Header() {
           <button className={styles.addButton} onClick={showHandler}>
             +
           </button>
-          <button className={styles.bulkDeleteButton} onClick={()=> dispatch({type:""})}>
-            Manage Bulk Delete
-          </button>
         </div>
-        <input type="text" placeholder="Search..." />
+        <input
+          type="text"
+          onChange={(e) => searchHandler(e.target.value)}
+          value={searchTerm}
+          placeholder="Search..."
+          className={styles.searchInput}
+        />
       </div>
     </div>
   );

@@ -22,16 +22,38 @@ function Form() {
 
   // const onSubmit = (data) => console.log(data);
 
+  // const onSubmit = (data) => {
+  //   if (state.contact?.id) {
+  //     dispatch({
+  //       type: "updateContact",
+  //       payload: { ...data, id: state.contact.id },
+  //     });
+  //   } else {
+  //     dispatch({ type: "NewContact", payload: { ...data, id: uuidv4() } });
+  //   }
+  //   dispatch({ type: "Cross" });
+  // };
+
   const onSubmit = (data) => {
     if (state.contact?.id) {
+      // نمایش مودال تأیید برای ویرایش
       dispatch({
-        type: "updateContact",
-        payload: { ...data, id: state.contact.id },
+        type: "ShowConfirmModal",
+        payload: {
+          mode: "edit",
+          data: { ...data, id: state.contact.id }
+        }
       });
     } else {
-      dispatch({ type: "NewContact", payload: { ...data, id: uuidv4() } });
+      // نمایش مودال تأیید برای اضافه کردن
+      dispatch({
+        type: "ShowConfirmModal",
+        payload: {
+          mode: "add",
+          data: { ...data, id: uuidv4() }
+        }
+      });
     }
-    dispatch({ type: "Cross" });
   };
 
   useEffect(() => {
