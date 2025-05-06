@@ -3,11 +3,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { userSchema } from "../schema/form";
 import styles from "./form.module.css";
 import getInputs from "../constants/input";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../App";
+import { v4 as uuidv4 } from "uuid";
 
 function Form() {
+  const { state, dispatch } = useContext(UserContext);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(userSchema),
@@ -15,11 +20,29 @@ function Form() {
 
   const inputs = getInputs(register);
 
-  const onSubmit = (data) => console.log(data);
+  // const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    if (state.contact?.id) {
+      dispatch({
+        type: "updateContact",
+        payload: { ...data, id: state.contact.id },
+      });
+    } else {
+      dispatch({ type: "NewContact", payload: { ...data, id: uuidv4() } });
+    }
+    dispatch({ type: "Cross" });
+  };
+
+  useEffect(() => {
+    if (state.contact?.id) {
+      reset(state.contact); // پر کردن فرم با داده‌ها
+    }
+  }, [state.contact]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h2>New Contact</h2>
+      <h2>{state.contact.id ? "Edite Contact" : "New Contact"}</h2>
       {inputs.map((input, index) => (
         <div key={index}>
           <input
@@ -32,7 +55,9 @@ function Form() {
         </div>
       ))}
 
-      <button type="submit">Add Contact</button>
+      <button type="submit">
+        {state.contact.id ? "Save Changes" : "Add Contact"}
+      </button>
     </form>
   );
 }

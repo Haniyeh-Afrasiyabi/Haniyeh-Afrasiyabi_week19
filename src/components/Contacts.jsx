@@ -10,7 +10,7 @@ function Contacts() {
     <div className={styles.container}>
       <button
         className={styles.cross}
-        onClick={() => dispatch({ type: "cross" })}
+        onClick={() => dispatch({ type: "Cross" })}
       >
         X
       </button>

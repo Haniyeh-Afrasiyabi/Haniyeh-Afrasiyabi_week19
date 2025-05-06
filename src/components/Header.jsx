@@ -6,7 +6,7 @@ function Header() {
   const { dispatch } = useContext(UserContext);
 
   const showHandler = () => {
-    dispatch({ type: "addContact" });
+    dispatch({ type: "AddContact" });
   };
 
   return (
@@ -17,7 +17,7 @@ function Header() {
           <button className={styles.addButton} onClick={showHandler}>
             +
           </button>
-          <button className={styles.bulkDeleteButton}>
+          <button className={styles.bulkDeleteButton} onClick={()=> dispatch({type:""})}>
             Manage Bulk Delete
           </button>
         </div>

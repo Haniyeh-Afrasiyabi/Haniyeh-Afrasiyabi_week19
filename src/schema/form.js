@@ -1,11 +1,10 @@
-import { object, string, number } from "yup";
+import { object, string} from "yup";
 
 export let userSchema = object({
   name: string().required().min(3),
   lastName: string().required().min(3),
   email: string().email().required(),
-  phoneNumber: number()
+  phoneNumber: string()
     .required("Phone Number is a required filed")
-    .positive()
-    .integer(),
+    .matches(/^09\d{9}$/),
 });
