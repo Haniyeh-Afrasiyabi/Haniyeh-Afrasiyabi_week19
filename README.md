@@ -16,6 +16,7 @@ If you are developing a production application, we recommend using TypeScript wi
 A responsive contact management application with advanced features.
 
 ## ✨ Key Features
+
 - ➕ **Add new contacts** with validated forms
 - ✏️ **Edit existing contacts**
 - 🔍 **Advanced search** by name, last name, and email
@@ -28,6 +29,7 @@ A responsive contact management application with advanced features.
 - 🧩 **Reusable components**
 
 ## 🛠️ Technologies Used
+
 - React.js
 - React Hook Form
 - Yup (for validation)
@@ -36,3 +38,25 @@ A responsive contact management application with advanced features.
 - useEffect
 - useState
 - uuid (for unique IDs)
+
+## 🎮 How to Use
+
+**Add a new contact:**
+
+- Click on the "Add Contact" button
+- Fill out the form (all fields are validated)
+- Click "Save" to add the new contact
+
+**Edit a contact:**
+
+- Click the edit icon next to any contact
+- Modify the information and save your changes
+
+**Search contacts:**
+
+- Use the search bar to find contacts by name, last name, or email
+
+**Delete contacts:**
+
+- Single deletion: Click the trash icon and confirm in the modal
+- Bulk deletion: Select multiple contacts and click the bulk delete button
